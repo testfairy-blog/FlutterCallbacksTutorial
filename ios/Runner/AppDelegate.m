@@ -35,13 +35,13 @@
     }];
 
 
-    // Prepare callback dictionary
-    self->callbackById = [NSMutableDictionary new];
-
     return [super application:application didFinishLaunchingWithOptions:launchOptions];
 }
 
 - (void) startListening:(id)args result:(FlutterResult)result {
+    // Prepare callback dictionary
+    if (self->callbackById == nil) self->callbackById = [NSMutableDictionary new];
+
     // Get callback id
     NSString* currentListenerId = [(NSNumber*) args stringValue];
 
